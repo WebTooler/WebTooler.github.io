@@ -1,53 +1,43 @@
 const TOOL_CATEGORIES = [
   {
-    id: "text",
+    id: "text-tools",
     title: "Text Tools",
-    description: "Text utilities like word counter, case converter and more",
+    description: "Text utilities like word counter and converters",
     tools: [
       {
         name: "Word Counter",
-        desc: "Count words, characters and sentences instantly",
+        description: "Count words, characters, and sentences",
         url: "/tools/word-counter.html"
       },
       {
         name: "Text Case Converter",
-        desc: "Convert text to uppercase, lowercase and more",
+        description: "Uppercase, lowercase, title case & more",
         url: "#"
       }
     ]
   },
+
   {
-    id: "seo",
+    id: "seo-tools",
     title: "SEO Tools",
-    description: "SEO tools to optimize your website",
+    description: "SEO optimization and analysis tools",
     tools: [
       {
         name: "Meta Tag Generator",
-        desc: "Generate SEO-friendly meta tags",
+        description: "Generate SEO meta tags",
         url: "#"
       }
     ]
   },
+
   {
-    id: "image",
+    id: "image-tools",
     title: "Image Tools",
-    description: "Compress, resize and optimize images",
+    description: "Compress and optimize images",
     tools: [
       {
         name: "Image Compressor",
-        desc: "Compress images without losing quality",
-        url: "#"
-      }
-    ]
-  },
-  {
-    id: "dev",
-    title: "Developer Tools",
-    description: "Helpful tools for developers",
-    tools: [
-      {
-        name: "JSON Formatter",
-        desc: "Format and validate JSON easily",
+        description: "Reduce image size without quality loss",
         url: "#"
       }
     ]
