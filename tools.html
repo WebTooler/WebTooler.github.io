@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Free Online Tools - WebTooler</title>
-  <meta name="description" content="Free online tools including word counter, text utilities, and productivity tools by WebTooler.">
+  <title>All Tools - Webtooler</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="font-family:Arial; max-width:1100px; margin:40px auto;">
 
-<h1>Free Online Tools</h1>
-<p>Explore our collection of fast, free, and easy-to-use online tools.</p>
+<h1>All Tools Categories</h1>
+<p>Browse free online tools by category.</p>
 
-<ul>
-  <li>
-    <a href="/word-counter.html"><strong>Word Counter</strong></a><br>
-    Count words, characters, sentences, and paragraphs instantly.
-  </li>
-</ul>
+<div id="categories"></div>
+
+<script>
+fetch("data/tools.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("categories");
+
+    Object.keys(data).forEach(category => {
+      const div = document.createElement("div");
+      div.style.marginBottom = "25px";
+      div.innerHTML = `
+        <h2>${category}</h2>
+        <p>
+          <a href="categories/${category.toLowerCase().replace(/ /g,'-')}.html">
+            View Tools →
+          </a>
+        </p>
+      `;
+      container.appendChild(div);
+    });
+  });
+</script>
 
 </body>
 </html>
