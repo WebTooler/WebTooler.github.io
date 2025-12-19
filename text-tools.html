@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Tools - Webtooler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family:Arial; max-width:1000px; margin:40px auto;">
+
+<h1>Text Tools</h1>
+<p>Free online text utilities by Webtooler.</p>
+
+<div id="tools"></div>
+
+<script>
+fetch("data/tools.json")
+  .then(response => response.json())
+  .then(data => {
+    const tools = data["Text Tools"];
+    const container = document.getElementById("tools");
+
+    tools.forEach(tool => {
+      const div = document.createElement("div");
+      div.style.marginBottom = "20px";
+      div.innerHTML = `
+        <h3>${tool.name}</h3>
+        <p>${tool.description}</p>
+        <a href="${tool.url}">Open Tool →</a>
+      `;
+      container.appendChild(div);
+    });
+  });
+</script>
+
+</body>
+</html>
