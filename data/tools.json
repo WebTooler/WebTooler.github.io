@@ -1,0 +1,10 @@
+{
+  "Text Tools": [
+    {
+      "id": "word-counter",
+      "name": "Word Counter",
+      "description": "Count words, characters and sentences instantly.",
+      "url": "tools/word-counter.html"
+    }
+  ]
+}
