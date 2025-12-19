@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Counter Tool – Webtooler</title>
+  <meta name="description" content="Free word counter tool to count words, characters, and sentences instantly. Fast, accurate, and easy to use.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Webtooler</h1>
+  <p>Free Online Tools</p>
+</header>
+
+<main>
+  <h2>Word Counter</h2>
+  <p>Paste your text below to count words, characters, and sentences instantly.</p>
+
+  <div class="card">
+    <textarea id="textInput" placeholder="Start typing or paste your text here..."></textarea>
+
+    <div class="stats">
+      <div class="stat">
+        <h3 id="wordCount">0</h3>
+        <p>Words</p>
+      </div>
+      <div class="stat">
+        <h3 id="charCount">0</h3>
+        <p>Characters</p>
+      </div>
+      <div class="stat">
+        <h3 id="sentenceCount">0</h3>
+        <p>Sentences</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 Webtooler • Built in India 🌍
+</footer>
+
+<script>
+const textInput = document.getElementById("textInput");
+const wordCount = document.getElementById("wordCount");
+const charCount = document.getElementById("charCount");
+const sentenceCount = document.getElementById("sentenceCount");
+
+textInput.addEventListener("input", () => {
+  const text = textInput.value.trim();
+
+  charCount.textContent = text.length;
+
+  wordCount.textContent = text
+    ? text.split(/\s+/).filter(w => w.length > 0).length
+    : 0;
+
+  sentenceCount.textContent = text
+    ? text.split(/[.!?]+/).filter(s => s.trim().length > 0).length
+    : 0;
+});
+</script>
+
+</body>
+</html>
