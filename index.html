@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="xP6YJWumKdVfgYV9x6SWUK3WjGj89Ln1Fr1P0_bT5WE" />
   <meta charset="UTF-8">
-  <title>Webtooler – Free Online Tools & AI Utilities</title>
-  <meta name="description" content="Webtooler provides free online tools, calculators, converters, and AI-powered utilities for creators, developers, and businesses worldwide.">
+  <meta name="google-site-verification" content="xP6YJwMmdVfgV9X6SWUK3WjG89Ln1Fr1PQ_bT5WE" />
+  <title>WebTooler - Free Online Tools & AI Utilities</title>
+  <meta name="description" content="WebTooler provides free online tools including word counter, text tools, converters and productivity utilities.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://webtooler.github.io/">
 
-  <!-- Simple styling -->
   <style>
     body {
       margin: 0;
@@ -20,21 +19,24 @@
       color: #e5e7eb;
     }
     header {
-      padding: 20px;
-      background: #020617;
-      text-align: center;
+      padding: 15px;
       border-bottom: 1px solid #1e293b;
-      <a href="/tools.html">Tools</a>
     }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      color: #38bdf8;
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
-    header p {
-      margin-top: 8px;
-      color: #94a3b8;
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
       font-size: 14px;
+    }
+    nav a.logo {
+      font-weight: bold;
+      font-size: 16px;
     }
     main {
       padding: 40px 20px;
@@ -50,22 +52,29 @@
       font-size: 16px;
       color: #cbd5f5;
       max-width: 700px;
-      margin: 0 auto 30px;
+      margin: 0 auto 20px;
     }
     .tools {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
+      margin-top: 30px;
     }
     .tool {
       background: #020617;
       border: 1px solid #1e293b;
       padding: 20px;
       border-radius: 10px;
+      text-align: left;
     }
     .tool h3 {
       margin-top: 0;
       color: #38bdf8;
+    }
+    .tool a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
     }
     footer {
       margin-top: 60px;
@@ -77,35 +86,64 @@
     }
   </style>
 </head>
-  <header style="padding:15px; border-bottom:1px solid #ddd;">
-  <nav style="max-width:1100px; margin:auto; display:flex; gap:20px;">
-    <a href="/" style="text-decoration:none;font-weight:bold;">WebTooler</a>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a href="/" class="logo">WebTooler</a>
+    <a href="/tools.html">Tools</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
     <a href="/privacy-policy.html">Privacy Policy</a>
   </nav>
-  </header>
-<body>
-<footer style="margin-top:50px; padding:20px; border-top:1px solid #ddd; text-align:center;">
-  <p>© 2025 WebTooler. All rights reserved.</p>
-  <p>
-    <a href="/about.html">About</a> |
-    <a href="/contact.html">Contact</a> |
-    <a href="/privacy-policy.html">Privacy Policy</a>
-  </p>
-</footer>
-<header>
-  <h1>Webtooler</h1>
-  <p>Free Online Tools & AI Utilities</p>
 </header>
 
+<!-- MAIN -->
 <main>
   <h2>Smart Tools for Creators & Businesses</h2>
   <p>
-    Webtooler offers fast, free, and AI-powered tools including calculators,
-    converters, generators, and productivity utilities designed for global users.
+    WebTooler offers fast, free, and easy-to-use online tools including text utilities,
+    converters, and productivity tools for global users.
   </p>
 
+  <p style="margin-top:25px;">
+    <a href="tools.html"
+       style="display:inline-block;background:#38bdf8;color:#020617;
+              padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      Browse All Tools →
+    </a>
+  </p>
+
+  <div class="tools">
+    <div class="tool">
+      <h3>Word Counter</h3>
+      <p>Count words, characters, and sentences instantly.</p>
+      <a href="tools/word-counter.html">Open Tool →</a>
+    </div>
+
+    <div class="tool">
+      <h3>Text Case Converter</h3>
+      <p>Convert text to uppercase, lowercase and more.</p>
+      <em>Coming soon</em>
+    </div>
+
+    <div class="tool">
+      <h3>AI Tools</h3>
+      <p>Smart AI-powered tools for research & content.</p>
+      <em>Coming soon</em>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 WebTooler • Built in India 🇮🇳
+</footer>
+
+</body>
+</html>
   <div class="tools">
     <div class="tool">
       <h3>Word Counter</h3>
