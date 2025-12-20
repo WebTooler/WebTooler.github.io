@@ -68,9 +68,6 @@ footer{
 <nav>
   <a href="/">WebTooler</a>
   <a href="tools.html">All Tools</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacy-policy.html">Privacy Policy</a>
 </nav>
 </header>
 
@@ -83,42 +80,69 @@ footer{
 © 2025 WebTooler · Built in India 🇮🇳
 </footer>
 
-<!-- DATA FILE -->
-<script src="data/tools-data.js"></script>
-
-<!-- RENDER LOGIC -->
 <script>
-const container = document.getElementById("tools-container");
+const TOOL_CATEGORIES = [
 
-if (typeof TOOL_CATEGORIES !== "undefined") {
-  TOOL_CATEGORIES.forEach(category => {
-    const section = document.createElement("section");
-    section.className = "category";
+{
+  title:"Text Tools",
+  description:"Word and text related utilities",
+  tools:[
+    {name:"Word Counter",desc:"Count words and characters",url:"/tools/word-counter.html"},
+    {name:"Character Counter",desc:"Count characters with or without spaces",url:"#"},
+    {name:"Text Case Converter",desc:"Uppercase, lowercase and more",url:"#"},
+    {name:"Remove Duplicate Lines",desc:"Remove duplicate text lines",url:"#"},
+    {name:"Text Sorter",desc:"Sort text alphabetically",url:"#"}
+  ]
+},
 
-    let toolsHTML = "";
-    category.tools.forEach(tool => {
-      toolsHTML += `
-        <div class="tool">
-          <h3>${tool.name}</h3>
-          <p>${tool.description}</p>
-          ${
-            tool.url === "#"
-              ? "<em>Coming soon</em>"
-              : `<a href="${tool.url}">Open Tool →</a>`
-          }
-        </div>
-      `;
-    });
+{
+  title:"SEO Tools",
+  description:"SEO and website optimization tools",
+  tools:[
+    {name:"Meta Tag Generator",desc:"Generate SEO meta tags",url:"#"},
+    {name:"Keyword Density Checker",desc:"Check keyword density",url:"#"},
+    {name:"Robots.txt Generator",desc:"Generate robots.txt",url:"#"},
+    {name:"Sitemap Generator",desc:"Generate XML sitemap",url:"#"}
+  ]
+},
 
-    section.innerHTML = `
-      <h2>${category.title}</h2>
-      <p>${category.description}</p>
-      <div class="tools">${toolsHTML}</div>
-    `;
-
-    container.appendChild(section);
-  });
+{
+  title:"Image Tools",
+  description:"Image compression and conversion tools",
+  tools:[
+    {name:"Image Compressor",desc:"Compress images online",url:"#"},
+    {name:"Image Resizer",desc:"Resize images easily",url:"#"},
+    {name:"Image to JPG Converter",desc:"Convert images to JPG",url:"#"}
+  ]
 }
+
+];
+
+const container=document.getElementById("tools-container");
+
+TOOL_CATEGORIES.forEach(cat=>{
+  const section=document.createElement("section");
+  section.className="category";
+
+  let html="";
+  cat.tools.forEach(t=>{
+    html+=`
+      <div class="tool">
+        <h3>${t.name}</h3>
+        <p>${t.desc}</p>
+        ${t.url==="#"?"<em>Coming soon</em>":`<a href="${t.url}">Open Tool →</a>`}
+      </div>
+    `;
+  });
+
+  section.innerHTML=`
+    <h2>${cat.title}</h2>
+    <p>${cat.description}</p>
+    <div class="tools">${html}</div>
+  `;
+
+  container.appendChild(section);
+});
 </script>
 
 </body>
