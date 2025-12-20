@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paragraph Counter – WebTooler</title>
+  <meta name="description" content="Count paragraphs in text online. Free paragraph counter tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Paragraph Counter</h1>
+  <p>Paste your text below to count total paragraphs.</p>
+
+  <textarea id="text" rows="12" placeholder="Paste your text here..."></textarea>
+
+  <br><br>
+  <button onclick="countParagraphs()">Count Paragraphs</button>
+
+  <h3>Total Paragraphs:</h3>
+  <p id="result">0</p>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function countParagraphs() {
+  const text = document.getElementById("text").value.trim();
+
+  if (!text) {
+    document.getElementById("result").innerText = 0;
+    return;
+  }
+
+  const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim() !== "");
+  document.getElementById("result").innerText = paragraphs.length;
+}
+</script>
+
+</body>
+</html>
