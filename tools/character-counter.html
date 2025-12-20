@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Character Counter – WebTooler</title>
+<meta name="description" content="Free online character counter tool. Count characters with and without spaces instantly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+main{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+textarea{
+  width:100%;
+  min-height:180px;
+  padding:15px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#e5e7eb;
+}
+.stats{
+  display:flex;
+  gap:20px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+.stat{
+  background:#020617;
+  border:1px solid #1e293b;
+  padding:12px 18px;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html">WebTooler</a>
+    <a href="../tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Character Counter</h1>
+  <p>Count characters with and without spaces instantly.</p>
+
+  <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+
+  <div class="stats">
+    <div class="stat">
+      Characters (with spaces):
+      <strong id="charWithSpace">0</strong>
+    </div>
+    <div class="stat">
+      Characters (without spaces):
+      <strong id="charWithoutSpace">0</strong>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+const input = document.getElementById("textInput");
+const withSpace = document.getElementById("charWithSpace");
+const withoutSpace = document.getElementById("charWithoutSpace");
+
+input.addEventListener("input", () => {
+  const text = input.value;
+  withSpace.textContent = text.length;
+  withoutSpace.textContent = text.replace(/\s/g, "").length;
+});
+</script>
+
+</body>
+</html>
