@@ -1,30 +1,38 @@
-const container = document.getElementById("tools-container");
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("tools-container");
 
-if (!container || typeof TOOL_CATEGORIES === "undefined") {
-  console.error("Tools container or TOOL_CATEGORIES not found");
-} else {
+  if (!container) {
+    container.innerHTML = "<p>Container not found</p>";
+    return;
+  }
+
+  if (typeof TOOL_CATEGORIES === "undefined") {
+    container.innerHTML = "<p>Tool data not loaded</p>";
+    return;
+  }
+
   TOOL_CATEGORIES.forEach(category => {
     const section = document.createElement("section");
-    section.id = category.id;
+    section.style.marginBottom = "60px";
+
+    let toolsHTML = "";
+
+    category.tools.forEach(tool => {
+      toolsHTML += `
+        <div class="tool">
+          <h3>${tool.name}</h3>
+          <p>${tool.desc}</p>
+          ${tool.url ? `<a href="${tool.url}">Open Tool →</a>` : `<em>Coming soon</em>`}
+        </div>
+      `;
+    });
 
     section.innerHTML = `
-      <h2>${category.title}</h2>
+      <h2 style="color:#38bdf8;">${category.title}</h2>
       <p>${category.description}</p>
-      <div class="tools">
-        ${category.tools.map(tool => `
-          <div class="tool">
-            <h3>${tool.name}</h3>
-            <p>${tool.desc}</p>
-            ${
-              tool.url
-                ? `<a href="${tool.url}">Open Tool →</a>`
-                : `<em>Coming soon</em>`
-            }
-          </div>
-        `).join("")}
-      </div>
+      <div class="tools">${toolsHTML}</div>
     `;
 
     container.appendChild(section);
   });
-}
+});
