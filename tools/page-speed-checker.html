@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Speed Checker – WebTooler</title>
+  <meta name="description" content="Check basic page load speed and performance timing online for free.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Page Speed Checker</h1>
+  <p>Enter a URL to check basic page load performance (client-side).</p>
+
+  <input
+    type="url"
+    id="url"
+    placeholder="https://example.com"
+    style="width:100%;padding:12px;"
+  />
+
+  <br><br>
+  <button onclick="checkSpeed()">Check Speed</button>
+
+  <h3>Result</h3>
+  <ul id="result"></ul>
+
+  <p style="font-size:14px;opacity:0.8;">
+    Note: This is a basic client-side check. For detailed audits, use Google PageSpeed Insights.
+  </p>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function checkSpeed() {
+  const url = document.getElementById("url").value.trim();
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+
+  if (!url) {
+    alert("Please enter a valid URL");
+    return;
+  }
+
+  const start = performance.now();
+
+  fetch(url, { mode: "no-cors" })
+    .then(() => {
+      const end = performance.now();
+      const loadTime = (end - start).toFixed(2);
+
+      result.innerHTML = `
+        <li>Estimated Load Time: <strong>${loadTime} ms</strong></li>
+        <li>Status: <strong>Reachable</strong></li>
+      `;
+    })
+    .catch(() => {
+      result.innerHTML = `
+        <li>Status: <strong>Unable to fetch (CORS restricted)</strong></li>
+        <li>Tip: Try testing your own website or a public URL.</li>
+      `;
+    });
+}
+</script>
+
+</body>
+</html>
