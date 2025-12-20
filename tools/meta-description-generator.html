@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meta Description Generator – WebTooler</title>
+  <meta name="description" content="Generate SEO-friendly meta descriptions and check optimal length instantly.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Meta Description Generator</h1>
+  <p>Create optimized meta descriptions and check their length.</p>
+
+  <textarea
+    id="descInput"
+    rows="5"
+    placeholder="Enter your meta description here..."
+  ></textarea>
+
+  <br><br>
+  <button onclick="checkDescription()">Check Description</button>
+
+  <h3>Result</h3>
+  <p id="lengthResult">Description length: 0 characters</p>
+  <p id="status"></p>
+
+  <h3>Generated Meta Tag</h3>
+  <textarea id="output" rows="4" placeholder="Meta tag will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function checkDescription() {
+  const desc = document.getElementById("descInput").value.trim();
+  const length = desc.length;
+
+  document.getElementById("lengthResult").innerText =
+    "Description length: " + length + " characters";
+
+  let statusText = "";
+  if (length === 0) {
+    statusText = "Please enter a meta description.";
+  } else if (length < 120) {
+    statusText = "Too short ❌ (Recommended: 150–160 characters)";
+  } else if (length <= 160) {
+    statusText = "Perfect length ✅";
+  } else {
+    statusText = "Too long ⚠️ (May be truncated in search results)";
+  }
+
+  document.getElementById("status").innerText = statusText;
+
+  if (desc) {
+    document.getElementById("output").value =
+      `<meta name="description" content="${desc}">`;
+  } else {
+    document.getElementById("output").value = "";
+  }
+}
+</script>
+
+</body>
+</html>
