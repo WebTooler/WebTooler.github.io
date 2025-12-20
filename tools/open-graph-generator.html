@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open Graph Generator – WebTooler</title>
+  <meta name="description" content="Generate Open Graph meta tags for Facebook and social media sharing.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Open Graph Generator</h1>
+  <p>Create Open Graph meta tags for better social media previews.</p>
+
+  <input type="text" id="ogTitle" placeholder="OG Title" style="width:100%;padding:10px;"><br><br>
+  <input type="text" id="ogUrl" placeholder="Page URL" style="width:100%;padding:10px;"><br><br>
+  <input type="text" id="ogImage" placeholder="Image URL" style="width:100%;padding:10px;"><br><br>
+
+  <textarea id="ogDesc" rows="4" placeholder="OG Description"></textarea><br><br>
+
+  <button onclick="generateOG()">Generate Open Graph Tags</button>
+
+  <h3>Generated Open Graph Tags</h3>
+  <textarea id="output" rows="8" placeholder="OG meta tags will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateOG() {
+  const title = document.getElementById("ogTitle").value.trim();
+  const url = document.getElementById("ogUrl").value.trim();
+  const image = document.getElementById("ogImage").value.trim();
+  const desc = document.getElementById("ogDesc").value.trim();
+
+  if (!title || !url || !image || !desc) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const tags = 
+`<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${image}">
+<meta property="og:type" content="website">`;
+
+  document.getElementById("output").value = tags;
+}
+</script>
+
+</body>
+</html>
