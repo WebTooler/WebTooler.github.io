@@ -12,21 +12,22 @@ body{
   background:#0f172a;
   color:#e5e7eb;
 }
-a{color:#38bdf8;text-decoration:none}
-
 header{
   background:#020617;
-  padding:15px;
   border-bottom:1px solid #1e293b;
 }
 nav{
   max-width:1100px;
   margin:auto;
+  padding:15px;
   display:flex;
   gap:20px;
 }
-nav a:first-child{font-weight:bold}
-
+nav a{
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:bold;
+}
 main{
   max-width:1100px;
   margin:auto;
@@ -34,7 +35,7 @@ main{
 }
 h1{text-align:center;margin-bottom:40px}
 
-.category{margin-bottom:50px}
+.category{margin-bottom:60px}
 .category h2{color:#38bdf8}
 .category p{color:#cbd5f5}
 
@@ -46,8 +47,8 @@ h1{text-align:center;margin-bottom:40px}
 .tool{
   background:#020617;
   border:1px solid #1e293b;
-  padding:18px;
   border-radius:12px;
+  padding:18px;
 }
 
 footer{
@@ -66,10 +67,10 @@ footer{
 <header>
 <nav>
   <a href="/">WebTooler</a>
-  <a href="/tools.html">Tools</a>
-  <a href="/about.html">About</a>
-  <a href="/contact.html">Contact</a>
-  <a href="/privacy-policy.html">Privacy Policy</a>
+  <a href="tools.html">All Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
 </nav>
 </header>
 
@@ -82,54 +83,43 @@ footer{
 © 2025 WebTooler · Built in India 🇮🇳
 </footer>
 
-<script>
-const TOOL_CATEGORIES = [
-  {
-    title:"Text Tools",
-    description:"Text utilities like word counter and converters",
-    tools:[
-      {name:"Word Counter",desc:"Count words and characters",url:"/tools/word-counter.html"},
-      {name:"Text Case Converter",desc:"Uppercase, lowercase & more",url:"#"}
-    ]
-  },
-  {
-    title:"SEO Tools",
-    description:"SEO optimization tools",
-    tools:[
-      {name:"Meta Tag Generator",desc:"Generate SEO meta tags",url:"#"}
-    ]
-  },
-  {
-    title:"Image Tools",
-    description:"Image compression and optimization",
-    tools:[
-      {name:"Image Compressor",desc:"Compress images easily",url:"#"}
-    ]
-  }
-];
-
-const container=document.getElementById("tools-container");
-
-TOOL_CATEGORIES.forEach(cat=>{
-  const section=document.createElement("section");
-  section.className="category";
-  section.innerHTML=`
-    <h2>${cat.title}</h2>
-    <p>${cat.description}</p>
-    <div class="tools">
-      ${cat.tools.map(t=>`
-        <div class="tool">
-          <h3>${t.name}</h3>
-          <p>${t.desc}</p>
-          <a href="${t.url}">Open Tool →</a>
-        </div>
-      `).join("")}
-    </div>
-  `;
-  container.appendChild(section);
-});
-</script>
+<!-- DATA FILE -->
 <script src="data/tools-data.js"></script>
-<script src="assets/js/tools-render.js"></script>
+
+<!-- RENDER LOGIC -->
+<script>
+const container = document.getElementById("tools-container");
+
+if (typeof TOOL_CATEGORIES !== "undefined") {
+  TOOL_CATEGORIES.forEach(category => {
+    const section = document.createElement("section");
+    section.className = "category";
+
+    let toolsHTML = "";
+    category.tools.forEach(tool => {
+      toolsHTML += `
+        <div class="tool">
+          <h3>${tool.name}</h3>
+          <p>${tool.description}</p>
+          ${
+            tool.url === "#"
+              ? "<em>Coming soon</em>"
+              : `<a href="${tool.url}">Open Tool →</a>`
+          }
+        </div>
+      `;
+    });
+
+    section.innerHTML = `
+      <h2>${category.title}</h2>
+      <p>${category.description}</p>
+      <div class="tools">${toolsHTML}</div>
+    `;
+
+    container.appendChild(section);
+  });
+}
+</script>
+
 </body>
 </html>
