@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Duplicate Lines – WebTooler</title>
+  <meta name="description" content="Remove duplicate lines from text online for free. Fast and easy duplicate line remover.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Remove Duplicate Lines</h1>
+  <p>Paste your text below and remove duplicate lines instantly.</p>
+
+  <textarea id="input" rows="10" placeholder="Paste text here..."></textarea>
+
+  <br><br>
+  <button onclick="removeDuplicates()">Remove Duplicates</button>
+
+  <h3>Output</h3>
+  <textarea id="output" rows="10" placeholder="Result will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function removeDuplicates() {
+  const text = document.getElementById("input").value;
+  const lines = text.split("\n");
+  const uniqueLines = [...new Set(lines)];
+  document.getElementById("output").value = uniqueLines.join("\n");
+}
+</script>
+
+</body>
+</html>
