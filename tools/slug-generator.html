@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slug Generator – WebTooler</title>
+  <meta name="description" content="Generate SEO-friendly URL slugs online from text. Free slug generator tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Slug Generator</h1>
+  <p>Enter your text below to generate a clean, SEO-friendly URL slug.</p>
+
+  <input
+    type="text"
+    id="inputText"
+    placeholder="Enter title or text here"
+    style="width:100%;padding:12px;"
+  />
+
+  <br><br>
+  <button onclick="generateSlug()">Generate Slug</button>
+
+  <h3>Generated Slug</h3>
+  <input
+    type="text"
+    id="outputSlug"
+    style="width:100%;padding:12px;"
+    placeholder="slug-will-appear-here"
+  />
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateSlug() {
+  const text = document.getElementById("inputText").value;
+
+  const slug = text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")   // remove special characters
+    .replace(/\s+/g, "-")           // replace spaces with hyphen
+    .replace(/-+/g, "-");           // remove multiple hyphens
+
+  document.getElementById("outputSlug").value = slug;
+}
+</script>
+
+</body>
+</html>
