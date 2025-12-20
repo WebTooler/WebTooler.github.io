@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Extra Spaces – WebTooler</title>
+  <meta name="description" content="Remove extra spaces from text online. Free extra space remover tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Remove Extra Spaces</h1>
+  <p>Paste your text below to remove extra spaces.</p>
+
+  <textarea id="inputText" rows="12" placeholder="Enter your text here..."></textarea>
+
+  <br><br>
+  <button onclick="removeSpaces()">Remove Extra Spaces</button>
+
+  <h3>Cleaned Text</h3>
+  <textarea id="outputText" rows="12" placeholder="Clean text will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function removeSpaces() {
+  const text = document.getElementById("inputText").value;
+
+  // remove extra spaces, tabs, and multiple newlines
+  const cleaned = text
+    .replace(/\s+/g, " ")
+    .replace(/\n\s*\n/g, "\n")
+    .trim();
+
+  document.getElementById("outputText").value = cleaned;
+}
+</script>
+
+</body>
+</html>
