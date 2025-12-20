@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sitemap Generator – WebTooler</title>
+  <meta name="description" content="Generate XML sitemap online for free. Easy sitemap generator tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Sitemap Generator</h1>
+  <p>Enter your website URLs (one per line) to generate an XML sitemap.</p>
+
+  <textarea id="urls" rows="10" placeholder="https://example.com/&#10;https://example.com/page"></textarea>
+
+  <br><br>
+  <button onclick="generateSitemap()">Generate Sitemap</button>
+
+  <h3>Generated XML Sitemap</h3>
+  <textarea id="output" rows="12" placeholder="Sitemap XML will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateSitemap() {
+  const urlsText = document.getElementById("urls").value.trim();
+
+  if (!urlsText) {
+    alert("Please enter at least one URL");
+    return;
+  }
+
+  const urls = urlsText.split("\n").map(u => u.trim()).filter(u => u);
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+  urls.forEach(url => {
+    xml += `  <url>\n`;
+    xml += `    <loc>${url}</loc>\n`;
+    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <priority>0.8</priority>\n`;
+    xml += `  </url>\n`;
+  });
+
+  xml += `</urlset>`;
+
+  document.getElementById("output").value = xml;
+}
+</script>
+
+</body>
+</html>
