@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Cleaner – WebTooler</title>
+  <meta name="description" content="Clean text online by removing unwanted symbols, extra spaces and line breaks. Free text cleaner tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Text Cleaner</h1>
+  <p>Paste your text below to clean unwanted characters and formatting.</p>
+
+  <textarea id="inputText" rows="12" placeholder="Paste your text here..."></textarea>
+
+  <br><br>
+  <button onclick="cleanText()">Clean Text</button>
+
+  <h3>Cleaned Text</h3>
+  <textarea id="outputText" rows="12" placeholder="Cleaned text will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function cleanText() {
+  let text = document.getElementById("inputText").value;
+
+  // Remove special symbols except basic punctuation
+  text = text.replace(/[^\w\s.,!?'-]/g, "");
+
+  // Remove extra spaces and tabs
+  text = text.replace(/\s+/g, " ").trim();
+
+  document.getElementById("outputText").value = text;
+}
+</script>
+
+</body>
+</html>
