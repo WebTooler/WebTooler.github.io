@@ -1,39 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>All Tools – WebTooler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>All Tools – WebTooler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+}
+nav{
+  display:flex;
+  gap:20px;
+  padding:15px 20px;
+  background:#020617;
+}
+nav a{
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:bold;
+}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+h1{text-align:center;margin-bottom:40px;}
+h2{color:#38bdf8;margin-top:50px;}
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+.tool{
+  background:#020617;
+  border:1px solid #1e293b;
+  padding:20px;
+  border-radius:12px;
+}
+.tool a{
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:bold;
+}
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #1e293b;
+  margin-top:60px;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <a href="index.html">WebTooler</a>
-    <a href="tools.html">All Tools</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-  </nav>
-</header>
+<nav>
+  <a href="index.html">WebTooler</a>
+  <a href="tools.html">All Tools</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-<main style="max-width:1100px;margin:auto;padding:40px 20px;">
-  <h1 style="text-align:center;">All Tools</h1>
+<main>
+<h1>All Tools</h1>
 
-  <!-- JS yahin tools dalega -->
-  <div id="tools-container"></div>
+<!-- TEXT TOOLS -->
+<h2>Text Tools</h2>
+<div class="tools">
+  <div class="tool"><h3>Word Counter</h3><p>Count words & characters</p><a href="tools/word-counter.html">Open Tool →</a></div>
+  <div class="tool"><h3>Character Counter</h3><p>Count characters</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Text Case Converter</h3><p>Uppercase / Lowercase</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Remove Duplicate Lines</h3><p>Remove repeated lines</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Text Sorter</h3><p>Sort text alphabetically</p><em>Coming soon</em></div>
+</div>
+
+<!-- SEO TOOLS -->
+<h2>SEO Tools</h2>
+<div class="tools">
+  <div class="tool"><h3>Meta Tag Generator</h3><p>Generate SEO meta tags</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Keyword Density Checker</h3><p>Check keyword density</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Robots.txt Generator</h3><p>Create robots.txt</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Sitemap Generator</h3><p>Create XML sitemap</p><em>Coming soon</em></div>
+</div>
+
+<!-- IMAGE TOOLS -->
+<h2>Image Tools</h2>
+<div class="tools">
+  <div class="tool"><h3>Image Compressor</h3><p>Compress images</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Image Resizer</h3><p>Resize images</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Image to JPG</h3><p>Convert images</p><em>Coming soon</em></div>
+</div>
+
+<!-- DEVELOPER TOOLS -->
+<h2>Developer Tools</h2>
+<div class="tools">
+  <div class="tool"><h3>JSON Formatter</h3><p>Format JSON data</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Base64 Encoder</h3><p>Encode & decode Base64</p><em>Coming soon</em></div>
+  <div class="tool"><h3>URL Encoder</h3><p>Encode URLs</p><em>Coming soon</em></div>
+  <div class="tool"><h3>Regex Tester</h3><p>Test regex patterns</p><em>Coming soon</em></div>
+</div>
+
 </main>
 
-<footer style="text-align:center;padding:30px;">
-  © 2025 WebTooler · Built in India 🇮🇳
+<footer>
+© 2025 WebTooler · Built in India 🇮🇳
 </footer>
-
-<!-- IMPORTANT: relative paths -->
-<script src="data/tools-data.js"></script>
-<script src="assets/js/tools-render.js"></script>
 
 </body>
 </html>
