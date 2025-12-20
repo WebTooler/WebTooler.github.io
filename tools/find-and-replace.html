@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find and Replace – WebTooler</title>
+  <meta name="description" content="Find and replace text online instantly. Free find and replace tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Find & Replace</h1>
+  <p>Enter text, find a word, and replace it instantly.</p>
+
+  <textarea id="inputText" rows="10" placeholder="Paste your text here..."></textarea>
+
+  <br><br>
+
+  <input type="text" id="findText" placeholder="Find text">
+  <input type="text" id="replaceText" placeholder="Replace with">
+
+  <br><br>
+  <button onclick="findReplace()">Replace</button>
+
+  <h3>Result</h3>
+  <textarea id="outputText" rows="10" placeholder="Updated text will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function findReplace() {
+  const text = document.getElementById("inputText").value;
+  const find = document.getElementById("findText").value;
+  const replace = document.getElementById("replaceText").value;
+
+  if (!find) {
+    alert("Please enter text to find");
+    return;
+  }
+
+  const result = text.split(find).join(replace);
+  document.getElementById("outputText").value = result;
+}
+</script>
+
+</body>
+</html>
