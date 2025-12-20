@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SEO Title Generator – WebTooler</title>
+  <meta name="description" content="Generate SEO-friendly titles and check optimal title length instantly.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>SEO Title Generator</h1>
+  <p>Create optimized page titles and check their length.</p>
+
+  <input
+    type="text"
+    id="titleInput"
+    placeholder="Enter your SEO title here"
+    style="width:100%;padding:12px;"
+  />
+
+  <br><br>
+  <button onclick="checkTitle()">Check Title</button>
+
+  <h3>Result</h3>
+  <p id="lengthResult">Title length: 0 characters</p>
+  <p id="status"></p>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function checkTitle() {
+  const title = document.getElementById("titleInput").value.trim();
+  const length = title.length;
+
+  document.getElementById("lengthResult").innerText =
+    "Title length: " + length + " characters";
+
+  let statusText = "";
+  if (length === 0) {
+    statusText = "Please enter a title.";
+  } else if (length < 30) {
+    statusText = "Too short ❌ (Recommended: 50–60 characters)";
+  } else if (length <= 60) {
+    statusText = "Perfect length ✅";
+  } else {
+    statusText = "Too long ⚠️ (May be truncated in search results)";
+  }
+
+  document.getElementById("status").innerText = statusText;
+}
+</script>
+
+</body>
+</html>
