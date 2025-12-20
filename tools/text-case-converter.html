@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Case Converter – WebTooler</title>
+<meta name="description" content="Free online text case converter. Convert text to uppercase, lowercase, title case and sentence case instantly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+main{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+textarea{
+  width:100%;
+  min-height:180px;
+  padding:15px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#e5e7eb;
+}
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:15px 0;
+}
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:6px;
+  background:#38bdf8;
+  color:#020617;
+  font-weight:bold;
+  cursor:pointer;
+}
+button.secondary{
+  background:#1e293b;
+  color:#e5e7eb;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html">WebTooler</a>
+    <a href="../tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Text Case Converter</h1>
+  <p>Convert text to different letter cases instantly.</p>
+
+  <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+
+  <div class="buttons">
+    <button onclick="toUpper()">UPPERCASE</button>
+    <button onclick="toLower()">lowercase</button>
+    <button onclick="toTitle()">Title Case</button>
+    <button onclick="toSentence()">Sentence case</button>
+    <button class="secondary" onclick="clearText()">Clear</button>
+  </div>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+const input = document.getElementById("textInput");
+
+function toUpper(){
+  input.value = input.value.toUpperCase();
+}
+
+function toLower(){
+  input.value = input.value.toLowerCase();
+}
+
+function toTitle(){
+  input.value = input.value
+    .toLowerCase()
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function toSentence(){
+  input.value = input.value
+    .toLowerCase()
+    .replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+}
+
+function clearText(){
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
