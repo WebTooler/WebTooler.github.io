@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Schema Generator – WebTooler</title>
+  <meta name="description" content="Generate JSON-LD schema markup for better SEO and rich results.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Schema Generator (JSON-LD)</h1>
+  <p>Create basic schema markup for your website.</p>
+
+  <label>Schema Type</label><br>
+  <select id="schemaType" style="width:100%;padding:10px;">
+    <option value="WebSite">Website</option>
+    <option value="Article">Article</option>
+    <option value="Organization">Organization</option>
+  </select>
+
+  <br><br>
+
+  <label>Title / Name</label>
+  <input type="text" id="name" placeholder="Enter title or name" style="width:100%;padding:10px;"><br><br>
+
+  <label>Description</label>
+  <textarea id="description" rows="4" placeholder="Enter description"></textarea><br><br>
+
+  <label>URL</label>
+  <input type="text" id="url" placeholder="https://example.com" style="width:100%;padding:10px;"><br><br>
+
+  <button onclick="generateSchema()">Generate Schema</button>
+
+  <h3>Generated JSON-LD Schema</h3>
+  <textarea id="output" rows="12" placeholder="Schema code will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateSchema() {
+  const type = document.getElementById("schemaType").value;
+  const name = document.getElementById("name").value.trim();
+  const desc = document.getElementById("description").value.trim();
+  const url = document.getElementById("url").value.trim();
+
+  if (!name || !desc || !url) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": type,
+    "name": name,
+    "description": desc,
+    "url": url
+  };
+
+  document.getElementById("output").value =
+`<script type="application/ld+json">
+${JSON.stringify(schema, null, 2)}
+</script>`;
+}
+</script>
+
+</body>
+</html>
