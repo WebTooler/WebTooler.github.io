@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Sorter – WebTooler</title>
+  <meta name="description" content="Sort text lines alphabetically online. Free text sorter tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Text Sorter</h1>
+  <p>Paste text lines below and sort them alphabetically.</p>
+
+  <textarea id="input" rows="10" placeholder="Enter text lines..."></textarea>
+
+  <br><br>
+  <button onclick="sortText('asc')">Sort A → Z</button>
+  <button onclick="sortText('desc')">Sort Z → A</button>
+
+  <h3>Sorted Output</h3>
+  <textarea id="output" rows="10" placeholder="Sorted result..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function sortText(order) {
+  const text = document.getElementById("input").value;
+  let lines = text.split("\n").filter(l => l.trim() !== "");
+
+  lines.sort((a, b) => a.localeCompare(b));
+
+  if (order === "desc") {
+    lines.reverse();
+  }
+
+  document.getElementById("output").value = lines.join("\n");
+}
+</script>
+
+</body>
+</html>
