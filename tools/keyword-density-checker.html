@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyword Density Checker – WebTooler</title>
+  <meta name="description" content="Check keyword density percentage online. Free keyword density checker tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Keyword Density Checker</h1>
+  <p>Paste your content and enter a keyword to check its density.</p>
+
+  <textarea id="content" rows="10" placeholder="Paste your text here..."></textarea>
+
+  <br><br>
+
+  <input type="text" id="keyword" placeholder="Enter keyword" style="width:100%;padding:10px;"><br><br>
+
+  <button onclick="checkDensity()">Check Density</button>
+
+  <h3>Result</h3>
+  <p id="result">Keyword density will appear here</p>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function checkDensity() {
+  const text = document.getElementById("content").value.toLowerCase();
+  const keyword = document.getElementById("keyword").value.toLowerCase().trim();
+
+  if (!text || !keyword) {
+    alert("Please enter both text and keyword");
+    return;
+  }
+
+  const words = text.split(/\s+/).filter(w => w);
+  const totalWords = words.length;
+
+  let count = 0;
+  words.forEach(word => {
+    if (word === keyword) count++;
+  });
+
+  const density = ((count / totalWords) * 100).toFixed(2);
+
+  document.getElementById("result").innerText =
+    `Keyword "${keyword}" appears ${count} times. Density: ${density}%`;
+}
+</script>
+
+</body>
+</html>
