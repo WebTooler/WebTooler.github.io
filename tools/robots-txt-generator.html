@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robots.txt Generator – WebTooler</title>
+  <meta name="description" content="Generate robots.txt file online for free. Control search engine crawling easily.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Robots.txt Generator</h1>
+  <p>Create a basic robots.txt file for your website.</p>
+
+  <label>
+    <input type="checkbox" id="allowAll" checked>
+    Allow all search engines
+  </label>
+  <br><br>
+
+  <label>
+    Sitemap URL (optional)
+  </label>
+  <input type="text" id="sitemap" placeholder="https://example.com/sitemap.xml" style="width:100%;padding:10px;">
+
+  <br><br>
+  <button onclick="generateRobots()">Generate Robots.txt</button>
+
+  <h3>Generated robots.txt</h3>
+  <textarea id="output" rows="8" placeholder="robots.txt content will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateRobots() {
+  const allowAll = document.getElementById("allowAll").checked;
+  const sitemap = document.getElementById("sitemap").value.trim();
+
+  let robots = "";
+
+  if (allowAll) {
+    robots += "User-agent: *\nAllow: /\n";
+  } else {
+    robots += "User-agent: *\nDisallow: /\n";
+  }
+
+  if (sitemap) {
+    robots += "\nSitemap: " + sitemap;
+  }
+
+  document.getElementById("output").value = robots;
+}
+</script>
+
+</body>
+</html>
