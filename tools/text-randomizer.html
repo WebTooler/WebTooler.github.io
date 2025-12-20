@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Randomizer – WebTooler</title>
+  <meta name="description" content="Randomly shuffle text lines online. Free text randomizer tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Text Randomizer</h1>
+  <p>Paste text lines below to randomize their order.</p>
+
+  <textarea id="inputText" rows="12" placeholder="Enter text lines here..."></textarea>
+
+  <br><br>
+  <button onclick="randomizeText()">Randomize Lines</button>
+
+  <h3>Randomized Output:</h3>
+  <textarea id="outputText" rows="12" placeholder="Randomized text will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function randomizeText() {
+  const text = document.getElementById("inputText").value.trim();
+
+  if (!text) {
+    document.getElementById("outputText").value = "";
+    return;
+  }
+
+  const lines = text.split("\n");
+
+  for (let i = lines.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [lines[i], lines[j]] = [lines[j], lines[i]];
+  }
+
+  document.getElementById("outputText").value = lines.join("\n");
+}
+</script>
+
+</body>
+</html>
