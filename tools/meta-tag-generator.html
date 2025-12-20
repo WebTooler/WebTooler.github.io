@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meta Tag Generator – WebTooler</title>
+  <meta name="description" content="Generate SEO meta title and meta description online for free.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="/">WebTooler</a>
+    <a href="/tools.html">All Tools</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Meta Tag Generator</h1>
+  <p>Create SEO-friendly meta title and description instantly.</p>
+
+  <label>Page Title</label><br>
+  <input type="text" id="title" placeholder="Enter page title" style="width:100%;padding:10px;"><br><br>
+
+  <label>Meta Description</label><br>
+  <textarea id="description" rows="4" placeholder="Enter meta description"></textarea><br><br>
+
+  <button onclick="generateMeta()">Generate Meta Tags</button>
+
+  <h3>Generated Meta Tags</h3>
+  <textarea id="output" rows="6" placeholder="Meta tags will appear here..."></textarea>
+</main>
+
+<footer>
+  © 2025 WebTooler · Built in India 🇮🇳
+</footer>
+
+<script>
+function generateMeta() {
+  const title = document.getElementById("title").value.trim();
+  const desc = document.getElementById("description").value.trim();
+
+  if (!title || !desc) {
+    alert("Please enter both title and description");
+    return;
+  }
+
+  const meta = 
+`<title>${title}</title>
+<meta name="description" content="${desc}">`;
+
+  document.getElementById("output").value = meta;
+}
+</script>
+
+</body>
+</html>
